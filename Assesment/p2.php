@@ -85,6 +85,12 @@
             border: 5px solid skyblue;
             position: relative;
             box-sizing: border-box; 
+            -ms-overflow-style: none;  
+            scrollbar-width: none;
+        }
+
+        .modal-box::-webkit-scrollbar {
+            display: none;
         }
         .modal-box input, .modal-box select {
             width: 100%;
