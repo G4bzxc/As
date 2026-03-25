@@ -8,7 +8,6 @@
     <link href="carousel.css" rel="stylesheet"/>
     <style>
         body {
-            background-color: lightblue;
             padding: 0;
             color: black;
             font-family:arial, sans-serif;
@@ -17,7 +16,7 @@
         /* Product Grid */
         .product-grid {
             display: flex;
-            grid-template-columns: repeat(auto-fit, minmax(250px,5fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
             gap: 20px;
             width: 90%;
             margin: auto;
@@ -25,13 +24,13 @@
         }
         .product-card {
             padding: 20px;
-            background: skyblue;
+            background: white;
             transition: transform 0.3s ease;
             border-radius: 25px;
             border: 2px solid black;
-            text-align: left;
+            text-align: center ;
         }
-        .product-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.5); }
+        .product-card:hover { transform: translateY(-10px); }
         .product-image-holder img {
             width: 100%;
             height: 200px;
@@ -43,20 +42,18 @@
         .label-box strong { color: black; }
 
         /* Buttons */
-        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
-        .add-cart, .buy-now {
+         .buy-now {
+            justify-content: center;
             flex: 1;
             border-radius: 8px;
-            padding: 10px;
+            padding: 20px;
             font-size: 0.85rem;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
         }
-        .add-cart { background: skyblue; color: black; border: 1px solid black; }
         .buy-now { background: skyblue; color: black; border: 1px solid black; }
-        .add-cart:hover { background: skyblue; color: black; }
-
+        
         /* Modal Overhaul */
         .modal {
             display: none;
@@ -82,7 +79,7 @@
             overflow-y: auto;
             padding: 25px;
             border-radius: 20px;
-            border: 5px solid skyblue;
+            border: 5px solid black;
             position: relative;
             box-sizing: border-box; 
             -ms-overflow-style: none;  
@@ -127,7 +124,7 @@
                 <div class="label-box"><strong>Stocks:</strong> <?php echo $product['stocks'];?></div>
 
                  <div class="btn-group">
-                    <button class="add-cart" onclick="addToCart(<?php echo $product['product_id']; ?>)">Add to Cart</button>
+                   
                     <button class="buy-now" onclick="openModal('<?php echo $product['product_id'] ?>', '<?php echo $product['product_name']?>', '<?php echo $product['price']?>')">Buy Now</button>
                  </div>
         </div>
@@ -162,7 +159,7 @@
 
                 <div style="display:flex; gap: 10px;">
                     <button type="submit" class="buy-now" style="flex:2;">Place Order</button>
-                    <button type="button" class="add-cart" style="color:black; border-color:black;" onclick="closeModal()">Cancel</button>
+                    <button type="button" class="buy-now" onclick="closeModal()">Cancel</button>
                 </div>
             </form>
         </div>
